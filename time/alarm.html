@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Alarme | Léo.t88</title>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="stylesheet" href="./clock.css">
+  <link rel="stylesheet" href="../app-style.css">
+  <link rel="stylesheet" href="../../mobile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <header>
+    <div id="google_translate_element" style="position: fixed; top: 2px; left: 17%; z-index:3;"></div>
+
+    <a href="../../"><img src="../../logo.png" id="logo2"></a>
+    <nav class="theme-switch-wrapper">
+      <em>Thème :</em>
+        <label for="themecheck" class="theme-switch">
+          <input type="checkbox" id="themecheck"/>
+          <div class="slider round"></div>
+        </label>
+    </nav>
+    
+    <menu>
+      <label for="mbl">
+          <i class="fa fa-bars" id="bar" onclick="menu()"></i>
+          <i class="fa fa-close" id="close" onclick="menu2()"></i>
+      </label>
+      <input type="checkbox" id="mbl" role="button">
+        <ul>
+            <li><a href="../../file-explorer"><i class="fa fa-folder"></i>File explorer</a></li>
+            <li><a href="../../games"><i class="fa fa-gamepad"></i>Jeux</a></li>
+            <li><a href="../../tools"><i class="fa fa-wrench"></i>Outils</a></li>
+            <li class="select"><a href="../../"><i class="fa fa-home"></i>Accueil</a></li>
+          </li>
+        </ul>
+        <div class="menugradient"></div>
+  </menu>
+    </header>
+</head>
+<body>
+<center>
+  <section class="panneau">
+    <h1>Alarme</h1>
+    <script>
+      function pause(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+      
+      async function afficherDate() {
+        while(true) 
+        {
+          await pause(150);
+          var cejour = new Date();
+          var heure = ("0" + cejour.getHours()).slice(-2) + " : " + ("0" + cejour.getMinutes()).slice(-2) + " : " + ("0" + cejour.getSeconds()).slice(-2);
+          var heure = heure + " ";
+          var heure = heure.replace(/(^\w{1})|(\s+\w{1})/g, lettre => lettre.toUpperCase());
+          document.getElementById('timeh').innerHTML = heure;
+        }
+      }
+      afficherDate();
+    </script>
+      <h1 id="timeh" class="hour"></h1>
+      <section class="bloc">
+        <div id='alarme'></div>
+        <div id="minuteur_form"><input type="time" name="time" id="time">
+        <input type="desc" name="desc" id="desc" placeholder="Entré un nom"><button name="alarm_set" id="alarm_set" onclick="alarmset()">Valider</button></div>
+        <h2><u>Alarme enregistrée :</u></h2>
+        <div id='table'><table id='alarm_table'></table></div>
+        <div id="dring">
+          <center>
+          <h1>L'Alarme sonne !</h1>
+          <img src="./alarme.png">
+          <table id='alarm_recap'></table>
+          <button id="stopalarm">Arrèter</button>
+        </center>
+        </div>
+    </section>
+  </section>
+  <div class="timetools">
+    <a href="./alarm" title="Alarme"><img src="./alarme.png"></a>
+    <a href="./stopwatch" title="Chronomètre"><img src="./chrono.png"></a>
+    <a href="./timer" title="Minuteur"><img src="./minuteur.png"></a>
+  </div>
+</center>
+<audio id="sonnerie01" src="./01.mp3" loop>
+</audio>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../../main.js"></script>
+<script>
+  function alarm(target,desc){
+  var today = new Date();
+
+  deux_chiffres = function(element){
+    if(element < 10){
+      return element = "0" + element;
+    }
+    else{
+      return element;
+    }
+  }
+
+  //Pour l'affichage de la variable "rendu"
+  var h =deux_chiffres(today.getHours());
+  var m =deux_chiffres(today.getMinutes());
+  var s =deux_chiffres(today.getSeconds());
+  var rendu = h + ":" + m + ":" + s;
+
+  //Si l'heure actuelle est égale à celle de l'alarme
+  if(target === rendu){
+    document.getElementById("dring").style.display = "table";
+    document.getElementById("sonnerie01").play();
+  }
+}
+
+$("#stopalarm").click(function (){
+  document.getElementById("sonnerie01").pause()
+  document.getElementById("dring").style.display = "none";
+})
+
+//Quand on définit une alarme
+$("#alarm_set").click(function (){
+
+var time = $('#time').val() + ":00";
+var desc = $('#desc').val();
+
+const timer=setInterval(() => {
+    var sonnerie=alarm(time,desc);
+    if(stoptime == "1")
+    {
+      clearInterval(timer);
+      var alarme=$('tr').children().attr("innerHTML",time);
+      alarme.remove();
+    }
+  }, 500);
+
+var array=[];
+array.push([time,desc]);
+
+$('#alarm_table').empty();
+$('#alarm_recap').empty();
+
+$.each(array, function (index, value) 
+  {
+    $('#alarm_table').append('<tr id=_'+index+'><td>' + value[0] + '</td><td>' + value[1] +'</td></tr>');
+    $('#alarm_recap').append('<tr id=_'+index+'><td>' + value[0] + '</td><td>' + value[1] +'</td></tr>');
+  });
+});
+
+</script>
+</body>
+</html>
