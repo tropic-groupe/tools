@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr" >
+<head>
+  <meta charset="UTF-8">
+  <title>Color Generator | Léo.t88</title>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://tropic-groupe.github.io/files/tropic-tools.png" rel="icon" type="image/png">
+  <link rel="stylesheet" href="./gene.css">
+  <meta name="description" content="Vous ne trouver pas ou vous n'avez pas d'idée de couleur (pour votre site web/application) color generator vous en génère une aléatoirement, format de couleur généré avec le color generator : Hexadecimal, RGB et HSL."/>
+
+  <link rel="stylesheet" href="../app-style.css">
+  <link rel="stylesheet" href="../../mobile.css">
+
+  <header>
+    <div id="google_translate_element" style="position: fixed; top: 2px; left: 17%; z-index:3;"></div>
+    
+    <a href="../../"><img src="../../logo.png" id="logo2"></a>
+    <nav class="theme-switch-wrapper">
+      <em>Thème :</em>
+        <label for="themecheck" class="theme-switch">
+          <input type="checkbox" id="themecheck"/>
+          <div class="slider round"></div>
+        </label>
+    </nav>
+    
+    <menu>
+      <label for="mbl">
+          <i class="fa fa-bars" id="bar" onclick="menu()"></i>
+          <i class="fa fa-close" id="close" onclick="menu2()"></i>
+      </label>
+      <input type="checkbox" id="mbl" role="button">
+        <ul>
+            <li><a href="../../file-explorer"><i class="fa fa-folder"></i>File explorer</a></li>
+            <li><a href="../../games"><i class="fa fa-gamepad"></i>Jeux</a></li>
+            <li><a href="../../tools"><i class="fa fa-wrench"></i>Outils</a></li>
+            <li class="select"><a href="../../"><i class="fa fa-home"></i>Accueil</a></li>
+          </li>
+        </ul>
+        <div class="menugradient"></div>
+  </menu>
+    </header>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="../../main.js"></script>
+</head>
+
+<body>
+<div class="container" style="font-size: 2em;">
+  <span id="hsl" title="Clic pour copié" onclick="copyToClipboard();"></span>
+  <span id="rgb" title="Clic pour copié" onclick="copyToClipboard();"></span>
+  <span id="hex" title="Clic pour copié" onclick="copyToClipboard();"></span>
+  <button id="btn" class="btn" onclick="newColor()">Nouvelle couleur</button>
+  <span class="sm" id="autoGenCB" ><input type="checkbox" onclick="autoGenerate()">Auto toutes les 2s</input></span>
+</div>
+  <script  src="./gene.js"></script>
+</body>
+</html>
