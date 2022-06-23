@@ -1,0 +1,120 @@
+html, body {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+.box{
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 1.4;
+  color: white;
+}
+
+h2 {
+  font-size: 1em;
+  line-height: 1;
+  opacity: 0.6;
+  color: white;
+  margin-bottom: 1em;
+}
+
+input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px dashed white;
+  font-size: 1.5em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: white;
+}
+
+#result {
+  color: white;
+  font-size: 1.5em;
+  font-weight: lighter;
+  letter-spacing: 2;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+:-moz-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+::-moz-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+:-ms-input-placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+@-webkit-keyframes change {
+  12.5% {
+    background: #1abc9c;
+  }
+  25% {
+    background: #2ecc71;
+  }
+  37.5% {
+    background: #3498db;
+  }
+  50% {
+    background: #9b59b6;
+  }
+  62.5% {
+    background: #f1c40f;
+  }
+  75% {
+    background: #e67e22;
+  }
+  87.5% {
+    background: #e74c3c;
+  }
+  100% {
+    background: #bdc3c7;
+  }
+}
+
+@keyframes change {
+  12.5% {
+    background: #1abc9c;
+  }
+  25% {
+    background: #2ecc71;
+  }
+  37.5% {
+    background: #3498db;
+  }
+  50% {
+    background: #9b59b6;
+  }
+  62.5% {
+    background: #f1c40f;
+  }
+  75% {
+    background: #e67e22;
+  }
+  87.5% {
+    background: #e74c3c;
+  }
+  100% {
+    background: #bdc3c7;
+  }
+}
