@@ -1,0 +1,207 @@
+i{
+  padding-right: 5px;
+}
+
+/*Theme*/
+:root {
+    --menu-color: #555;
+    --bg-color: #eee;
+    --box-color: #A8FFCA;
+    --txt-color: #fff;
+    --txt-color: #000;
+  }
+  
+  [data-theme="dark"] {
+    --menu-color: #222;
+    --bg-color: #001833;
+    --box-color: #24364a;
+    --txt-color: #fff;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+    --menu-color: #222;
+    --bg-color: #001833;
+    --box-color: #24364a;
+    --txt-color: #fff;
+    }
+  
+    [data-theme="light"] {
+    --menu-color: #555;
+    --bg-color: #eee;
+    --box-color: #A8FFCA;
+    --txt-color: #000;
+    }
+  }
+  
+  .theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  margin-top: 5px;
+  margin-left: 4%;
+  z-index: 3;
+  }
+  .theme-switch {
+  display: inline-block;
+  height: 34px;
+  width: 60px;
+  position: relative;
+  }
+  
+  .slider {
+  background-color:lightblue;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border-radius: 35px;
+  cursor: pointer;
+  transition: 0.4s;
+  }
+  .slider::before {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  background-color: #fff;
+  width: 27px;
+  height: 27px;
+  transition: 0.4s;
+  border-radius: 50%;
+  }
+  .switcher{
+  position:absolute;
+  display:block;
+  top:70px;
+  right:50px;
+  width:45px;
+  height:30px;
+  background: #fff;
+  box-shadow:0 3px 6px #00000029;
+  border-radius:31px;
+  }
+  
+  input:checked + .slider {
+  background-color: #444;
+  }
+  input:checked + .slider::before {
+  transform: translateX(26px);
+  }
+  label > input[type="checkbox"] {
+  display: none;
+  }
+  
+  em{
+  color: white;
+  }
+  
+  /*Menu*/
+  *{
+      margin: 0px;
+      padding: 0px;
+      font-family: Avenir, sans-serif;
+    }
+    
+    menu{
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 10px;
+    background-color: var(--menu-color);
+    transition: all .2s ease;
+    position: fixed;
+    z-index: 2;
+    }
+    #close, #bar{
+    float: right;
+    margin-right: 5px;
+    padding: 2px;
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+    }
+    
+    #close, #bar, #mbl{
+      display: none;
+    }
+    menu ul{
+    list-style-type: none;
+    }
+    menu ul li{
+    float:right;
+    width: 13%;
+    text-align: center;
+    }
+    menu ul::after{
+    content: "";
+    display: table;
+    clear: both;
+    }
+    
+    menu a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 20px;
+    }
+    
+    menu a:hover{
+    color: lightskyblue
+    }
+    menu > ul li:hover .sous{
+    display: block;
+    }
+    menu > ul > h2{
+    color: aquamarine;
+    } 
+    
+    .select{
+      background: linear-gradient(to right, #12ffd7 20%, #ffa600 60%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 790;
+    }
+  
+    .menugradient{
+      display: block;
+      border-top: 10px solid var(--menu-color);
+      width: 100%;
+      padding: 5px 0px 0px 0px;
+      background: linear-gradient(to right, #12ffd7 20%, #ffa600 70%);
+      transition: all .2s ease;
+    }
+
+    #logo2{
+    position: fixed;
+    left: 2px;
+    height: 42px;
+    z-index: 3;
+    }
+
+/*Scrollbar*/
+/*Firefox*/
+body {
+    scrollbar-width: thin;
+    scrollbar-color: #eee #666;
+    }
+    
+    /*Chrome, Edge, Safari*/
+    *::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+    }
+    *::-webkit-scrollbar-track {
+    background: var(--menu-color);
+    }
+    *::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 50px;
+    }
+    *::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(115deg,#ffa600 10%, #f003d0 90%);
+    }
+
+/*Google Traduction*/
+select{background-color: transparent; border: 2px solid #fff; border-radius: 50px; color: #fff; height: 30px;}.goog-logo-link{display: none;}.goog-te-gadget{font-size: 0px;}option{color: lightseagreen; font-size: 14px; font-weight: 600; background-color: var(--bg-color);}select::-webkit-scrollbar-thumb:hover {background-color: pink;}
