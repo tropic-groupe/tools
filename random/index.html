@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Random Number | Léo.t88</title>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'fr'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../app-style.css">
+    <link rel="stylesheet" href="../../mobile.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <header>
+        <div id="google_translate_element" style="position: fixed; top: 2px; left: 17%; z-index:3;"></div>
+        
+        <a href="../../"><img src="../../logo.png" id="logo2"></a>
+        <nav class="theme-switch-wrapper">
+          <em>Thème :</em>
+            <label for="themecheck" class="theme-switch">
+              <input type="checkbox" id="themecheck"/>
+              <div class="slider round"></div>
+            </label>
+        </nav>
+        
+        <menu>
+          <label for="mbl">
+              <i class="fa fa-bars" id="bar" onclick="menu()"></i>
+              <i class="fa fa-close" id="close" onclick="menu2()"></i>
+          </label>
+          <input type="checkbox" id="mbl" role="button">
+            <ul>
+                <li><a href="../../file-explorer"><i class="fa fa-folder"></i>File explorer</a></li>
+                <li><a href="../../games"><i class="fa fa-gamepad"></i>Jeux</a></li>
+                <li><a href="../../tools"><i class="fa fa-wrench"></i>Outils</a></li>
+                <li class="select"><a href="../../"><i class="fa fa-home"></i>Accueil</a></li>
+              </li>
+            </ul>
+            <div class="menugradient"></div>
+      </menu>
+    </header>
+</head>
+
+<body>
+<div class="box">
+    <div class="nbgen">
+        <h1>Générateur de nombre aléatoire</h1>
+        <p>Générer <span id="length"></span> nombre(s)</p>
+        <input type="range" min="1" max="100" value="1" class="sliderbar" id="myRange">
+        <p>Minimum : </p><input type="number" id="min" value="1">
+        <p>Maximum : </p><input type="number" id="max" value="10">
+        <button onclick="generate()">Générer</button>
+        <u><strong><p>Résultat :</p></strong></u>
+        <p id="result">???</p>
+    </div>
+
+    <div class="pfgen">
+        <div class="content"></div>
+        <h1>Pile ou face aléatoire</h1>
+        <img src="./pfmystère.png" id="pfimg">
+        <button onclick="pfgen()">Générer</button>
+        <u><strong><p>Résultat :</p></strong></u>
+        <p id="resultpf">???</p>
+        </div>
+    </div>
+</div>
+<script src="../../main.js"></script>
+<script>
+  function generate(){
+  let gen = "";
+    let quantite = parseInt(document.getElementById("myRange").value);
+    let min = parseInt(document.getElementById("min").value);    
+    let max = parseInt(document.getElementById("max").value) + 1;    
+    
+    for (let i = 1; i <= quantite; i++){
+      gen = gen + Math.floor(Math.random() * (max - min) + min) + " ";
+  }
+  document.getElementById("result").innerHTML = gen;
+}
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("length");
+var strength = document.getElementById("strength");
+output.innerHTML = slider.value;
+slider.oninput = function() {output.innerHTML = this.value;}
+
+function pfgen(){
+  var pf = Math.floor(Math.random() * 2) + 1;
+  if(pf == 1){
+    document.getElementById("resultpf").innerHTML = "Pile";
+    document.getElementById("pfimg").src = "./pile.png"
+  } else if(pf == 2){
+    document.getElementById("resultpf").innerHTML = "Face";
+    document.getElementById("pfimg").src = "./face.png"
+  }
+}
+</script>
+</body>
